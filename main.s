@@ -3,18 +3,27 @@
 .global main
 
 main:
-ldr r0, =mensaje_orientacion
+/*ldr r0, =mensaje_orientacion
 bl puts
 ldr r0, =formato
 ldr r1, =orientacion
 bl scanf
+ldr r0, =mapa1j1
+ldr r1, =
+ldr r4, =orientacion
+ldrb r4, [r4]
+cmp r4, #'V'
+bleq vertical
+cmp r4, #'H'
+bleq horizontal*/
+
 @bl getchar
 ldr r0, =mensaje_ingreso
 bl puts
 ldr r0, =formato
 ldr r1, =letra
 bl scanf
-@bl getchar
+/*@bl getchar
 ldr r0, =letra
 bl conversion
 mov r1, r0
@@ -24,11 +33,30 @@ ldr r0, =mapa1j1
 bl horizontal
 @ldr r0, =mapa1j1
 @mov r1, #3
-@bl vertical
+@bl vertical*/
+
+/*ldr r0, =mapa1j1
+bl cuadro*/
+
+ldr r0, =mensaje_orientacion
+bl puts
+ldr r0, =formato
+ldr r1, =orientacion
+bl scanf
+ldr r0, =letra
+bl conversion
+mov r1, r0
+
+ldr r0, =mapa1j1
+ldr r4, =orientacion
+ldrb r4, [r4]
+cmp r4, #'V'
+bleq vertical
+cmp r4, #'H'
+bleq horizontal
+
 ldr r0, =mapa1j1
 bl cuadro
-
-
 
 
 
