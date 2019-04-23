@@ -31,60 +31,60 @@ pop {pc}
 
 conversion:
 push {lr}
-@r0 contiene la direccion de la orientacion
-@r1 contiene la letra con la posicion
+@r0 contiene la direccion de la letra
 ldrb r0, [r0]
-ldrb r1, [r1]
 cmp r0, #'A'
 moveq r2, #0
-cmpne r0, #'B'
+cmp r0, #'B'
 moveq r2, #1
-cmpne r0, #'C'
+cmp r0, #'C'
 moveq r2, #2
-cmpne r0, #'D'
+cmp r0, #'D'
 moveq r2, #3
-cmpne r0, #'E'
+cmp r0, #'E'
 moveq r2, #4
-cmpne r0, #'F'
+cmp r0, #'F'
 moveq r2, #5
-cmpne r0, #'G'
+cmp r0, #'G'
 moveq r2, #6
-cmpne r0, #'H'
+cmp r0, #'H'
 moveq r2, #7
-cmpne r0, #'I'
+cmp r0, #'I'
 moveq r2, #8
-cmpne r0, #'J'
+cmp r0, #'J'
 moveq r2, #9
-cmpne r0, #'K'
+cmp r0, #'K'
 moveq r2, #10
-cmpne r0, #'L'
+cmp r0, #'L'
 moveq r2, #11
-cmpne r0, #'M'
+cmp r0, #'M'
 moveq r2, #12
-cmpne r0, #'N'
+cmp r0, #'N'
 moveq r2, #13
-cmpne r0, #'O'
+cmp r0, #'O'
 moveq r2, #14
-cmpne r0, #'P'
+cmp r0, #'P'
 moveq r2, #15
-cmpne r0, #'Q'
+cmp r0, #'Q'
 moveq r2, #16
-cmpne r0, #'R'
+cmp r0, #'R'
 moveq r2, #17
-cmpne r0, #'S'
+cmp r0, #'S'
 moveq r2, #18
-cmpne r0, #'T'
+cmp r0, #'T'
 moveq r2, #19
-cmpne r0, #'U'
+cmp r0, #'U'
 moveq r2, #20
-cmpne r0, #'V'
+cmp r0, #'V'
 moveq r2, #21
-cmpne r0, #'W'
+cmp r0, #'W'
 moveq r2, #22
-cmpne r0, #'X'
+cmp r0, #'X'
 moveq r2, #23
-cmpne r0, #'Y'
+cmp r0, #'Y'
 moveq r2, #24
+
+
 mov r0, r2
 pop {pc}
 
