@@ -32,6 +32,7 @@ pop {pc}
 conversion:
 push {lr}
 @r0 contiene la direccion de la letra
+@Compara con las letras y segun caso lo convierte a un numero
 ldrb r0, [r0]
 cmp r0, #'A'
 moveq r2, #0
@@ -83,8 +84,6 @@ cmp r0, #'X'
 moveq r2, #23
 cmp r0, #'Y'
 moveq r2, #24
-
-
 mov r0, r2
 pop {pc}
 

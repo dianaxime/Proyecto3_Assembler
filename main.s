@@ -11,18 +11,23 @@ bl puts
 mov r11, #0
 navesjuno: ldr r0, =mensaje_ingreso
 	bl puts
+	@Ingresa la letra correspondiente a la casilla y la guarda en memoria
 	ldr r0, =formato
 	ldr r1, =letra
 	bl scanf
+	@Ingresa la orientacion del barco con una letra y lo guarda en memoria
 	ldr r0, =mensaje_orientacion
 	bl puts
 	ldr r0, =formato
 	ldr r1, =orientacion
 	bl scanf
+	@Convierte la letra de la casilla a un numero
 	ldr r0, =letra
 	bl conversion
+	@Carga el valor de la casilla y la direccion de memoria del vector
 	mov r1, r0
 	ldr r0, =mapa1j1
+	@Compara si es horizontal o vertical y llama a la subrutina segun sea el caso
 	ldr r4, =orientacion
 	ldrb r4, [r4]
 	cmp r4, #'V'
