@@ -17,47 +17,59 @@ bleq vertical
 cmp r4, #'H'
 bleq horizontal*/
 
-@bl getchar
-ldr r0, =mensaje_ingreso
+ldr r0, =mensaje_bj1
 bl puts
-ldr r0, =formato
-ldr r1, =letra
-bl scanf
-/*@bl getchar
-ldr r0, =letra
-bl conversion
-mov r1, r0
-@bl asciiart
-ldr r0, =mapa1j1
-@mov r1, #15
-bl horizontal
-@ldr r0, =mapa1j1
-@mov r1, #3
-@bl vertical*/
 
-/*ldr r0, =mapa1j1
-bl cuadro*/
 
-ldr r0, =mensaje_orientacion
+mov r5, #2
+mov r6, #1
+navesj1:
+	@bl getchar
+	ldr r0, =mensaje_ingreso
+	bl puts
+	ldr r0, =formato
+	ldr r1, =letra
+	bl scanf
+	/*@bl getchar
+	ldr r0, =letra
+	bl conversion
+	mov r1, r0
+	@bl asciiart
+	ldr r0, =mapa1j1
+	@mov r1, #15
+	bl horizontal
+	@ldr r0, =mapa1j1
+	@mov r1, #3
+	@bl vertical*/
+
+	/*ldr r0, =mapa1j1
+	bl cuadro*/
+
+	ldr r0, =mensaje_orientacion
+	bl puts
+	ldr r0, =formato
+	ldr r1, =orientacion
+	bl scanf
+	ldr r0, =letra
+	bl conversion
+	mov r1, r0
+
+	ldr r0, =mapa1j1
+	ldr r4, =orientacion
+	ldrb r4, [r4]
+	cmp r4, #'V'
+	bleq vertical
+	cmp r4, #'H'
+	bleq horizontal
+
+	ldr r0, =mapa1j1
+	bl cuadro
+	sub r5, r5, r6
+	cmp r5, #0
+	bne navesj1
+
+ldr r0, =mensaje_bj2
 bl puts
-ldr r0, =formato
-ldr r1, =orientacion
-bl scanf
-ldr r0, =letra
-bl conversion
-mov r1, r0
-
-ldr r0, =mapa1j1
-ldr r4, =orientacion
-ldrb r4, [r4]
-cmp r4, #'V'
-bleq vertical
-cmp r4, #'H'
-bleq horizontal
-
-ldr r0, =mapa1j1
-bl cuadro
-
 
 
 
@@ -77,5 +89,7 @@ bl cuadro
  formato: .asciz "   %c"
  letra: .byte 0
  orientacion: .byte 0
+ mensaje_bj1: .asciz "Jugador1: escoja sus naves"
+  mensaje_bj2: .asciz "Jugador2: escoja sus naves"
  mensaje_ingreso: .asciz "Ingrese una letra\n"
  mensaje_orientacion: .asciz "Ingrese V para vertical o H para horizontal"
