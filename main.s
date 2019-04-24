@@ -3,48 +3,17 @@
 .global main
 
 main:
-/*ldr r0, =mensaje_orientacion
-bl puts
-ldr r0, =formato
-ldr r1, =orientacion
-bl scanf
-ldr r0, =mapa1j1
-ldr r1, =
-ldr r4, =orientacion
-ldrb r4, [r4]
-cmp r4, #'V'
-bleq vertical
-cmp r4, #'H'
-bleq horizontal*/
 
 ldr r0, =mensaje_bj1
 bl puts
 
 
-mov r5, #2
-mov r6, #1
-navesj1:
-	@bl getchar
-	ldr r0, =mensaje_ingreso
+mov r11, #0
+navesjuno: ldr r0, =mensaje_ingreso
 	bl puts
 	ldr r0, =formato
 	ldr r1, =letra
 	bl scanf
-	/*@bl getchar
-	ldr r0, =letra
-	bl conversion
-	mov r1, r0
-	@bl asciiart
-	ldr r0, =mapa1j1
-	@mov r1, #15
-	bl horizontal
-	@ldr r0, =mapa1j1
-	@mov r1, #3
-	@bl vertical*/
-
-	/*ldr r0, =mapa1j1
-	bl cuadro*/
-
 	ldr r0, =mensaje_orientacion
 	bl puts
 	ldr r0, =formato
@@ -53,7 +22,6 @@ navesj1:
 	ldr r0, =letra
 	bl conversion
 	mov r1, r0
-
 	ldr r0, =mapa1j1
 	ldr r4, =orientacion
 	ldrb r4, [r4]
@@ -61,12 +29,11 @@ navesj1:
 	bleq vertical
 	cmp r4, #'H'
 	bleq horizontal
-
 	ldr r0, =mapa1j1
 	bl cuadro
-	sub r5, r5, r6
-	cmp r5, #0
-	bne navesj1
+	add r11, r11, #1
+	cmp r11,#2
+	bne navesjuno
 
 ldr r0, =mensaje_bj2
 bl puts
