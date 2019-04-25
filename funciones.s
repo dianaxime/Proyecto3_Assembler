@@ -19,7 +19,6 @@ atacar:
 contar:
 	push {lr}
 	@ r0 contiene la direccion del vector
-	mov r0, r0
 	mov r2, #25
 	mov r3,#0
 	repite: ldrb r1, [r0], #1
