@@ -2,6 +2,9 @@
 
 vhorizontal:
 @r0 contiene la direccion de la letra
+@carga el valor de la letra
+@se predefinieron los casos horizontales imposibles
+@compara y si es un caso imposible devuelve "-1"
 push {lr}
 ldrb r1, [r0]
 cmp r1, #'D'
@@ -28,6 +31,10 @@ pop {pc}
 
 vvertical:
 @r0 contiene la direccion de la letra
+@r0 contiene la direccion de la letra
+@carga el valor de la letra
+@se predefinieron los casos verticales imposibles
+@compara y si es un caso imposible devuelve "-1"
 push {lr}
 ldrb r1, [r0]
 cmp r1, #'P'

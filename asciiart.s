@@ -1,4 +1,5 @@
 .global asciiart
+@Todas
 asciiart:
 push {lr}
 ldr r0, =titulo

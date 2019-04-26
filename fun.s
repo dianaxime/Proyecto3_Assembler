@@ -1,11 +1,14 @@
 .global horizontal, vertical, conversion
 
 horizontal:
+@@@DIANA
 	push {lr}
 	@agregar horizontalmente
-	@ ro contiene la direccion de memoria del vector
+	@ r0 contiene la direccion de memoria del vector
 	@ r1 contiene un int con la casilla que el usuario selecciono
 	@sumo las direcciones de memoria
+	@sobreescribe el vector con un "+" en la casilla
+	@y avanza 1 espacios para la proxima casilla
 	add r0, r0, r1
 	mov r2,#'+'
 	@se itera 3 veces por el espacio que ocupa el barco
@@ -17,10 +20,13 @@ horizontal:
 
 
 vertical:
+@@@MARIA INES
 	push {lr}
 	@agregar verticalmente
-	@ ro contiene la direccion de memoria del vector
+	@ r0 contiene la direccion de memoria del vector
 	@ r1 contiene un int con la casilla que el usuario selecciono
+	@sobreescribe el vector con un "+" en la casilla
+	@y avanza 5 espacios para la proxima casilla
 	add r0, r0, r1
 	mov r2,#'+'
 	mov r3,#3
@@ -30,6 +36,7 @@ vertical:
 	pop {pc}
 
 conversion:
+@@@DIANA
 	push {lr}
 	@r0 contiene la direccion de la letra
 	@Compara con las letras y segun caso lo convierte a un numero

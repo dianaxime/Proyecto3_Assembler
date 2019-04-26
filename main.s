@@ -137,7 +137,9 @@ bl puts
 	bl puts
 
 	mov r10, #3
-	atacajuno: ldr r0, =mensaje_ataque
+	atacajuno: ldr r0, =mapa2j1
+		bl cuadro
+		ldr r0, =mensaje_ataque
 		bl puts
 		ldr r0, =formato
 		ldr r1, =letra
@@ -166,12 +168,8 @@ bl puts
 	cmp r4, #6
 	beq gano1
 
-	mov r11, #5
 	ldr r0, =mapa2j1
 	bl cuadro
-		mostrar1:
-		subs r11, r11, #1
-		bne mostrar1
 
 	ldr r0, =limpiar
 	bl puts
@@ -180,7 +178,9 @@ bl puts
 	bl puts
 
 	mov r10, #3
-	atacajdos: ldr r0, =mensaje_ataque
+	atacajdos: ldr r0, =mapa2j2
+		bl cuadro
+		ldr r0, =mensaje_ataque
 		bl puts
 		ldr r0, =formato
 		ldr r1, =letra
@@ -209,13 +209,9 @@ bl puts
 	cmp r4, #6
 	beq gano2
 
-	mov r11, #5
 	ldr r0, =mapa2j2
 	bl cuadro
-		mostrar2:
-		subs r11, r11, #1
-		bne mostrar2
-
+	
 	ldr r0, =limpiar
 	bl puts
 
