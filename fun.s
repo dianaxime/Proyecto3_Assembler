@@ -14,8 +14,8 @@ horizontal:
 	@se itera 3 veces por el espacio que ocupa el barco
 	mov r3,#3
 	repetir: strb r2, [r0], #1
-	subs r3, r3, #1
-	bne repetir
+		subs r3, r3, #1
+		bne repetir
 	pop {pc}
 
 
@@ -31,8 +31,8 @@ vertical:
 	mov r2,#'+'
 	mov r3,#3
 	repet: strb r2, [r0], #5
-	subs r3, r3, #1
-	bne repet
+		subs r3, r3, #1
+		bne repet
 	pop {pc}
 
 conversion:

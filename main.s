@@ -57,6 +57,23 @@ navesjuno: ldr r0, =mensaje_ingreso
 		bleq vhorizontal
 		cmp r0, #-1
 		beq navesjuno
+
+		ldr r0, =orientacion
+		ldr r9, [r0]
+		@carga la letra y la convierte a un numero
+		@carga el mapa del jugador1
+		@compara que no haya un barco ahi
+		@si hay un barco ahi le pide otra letra
+		ldr r0, =letra
+		bl conversion
+		mov r1, r0
+		ldr r0, =mapa1j1
+		cmp r9,#'V'
+		@bleq barcovertical
+		cmpne r9, #'H'
+		bleq barcohorizontal
+		cmp r0, #-1
+		beq navesjuno
 		
 	@Convierte la letra de la casilla a un numero
 	ldr r0, =letra
