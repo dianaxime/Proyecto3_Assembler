@@ -40,6 +40,7 @@ conversion:
 	push {lr}
 	@r0 contiene la direccion de la letra
 	@Compara con las letras y segun caso lo convierte a un numero
+	@r2 es "-1" y solo cambia si el caracter ingresado corresponde a una casilla
 	ldrb r0, [r0]
 	mov r2, #-1
 	cmp r0, #'A'

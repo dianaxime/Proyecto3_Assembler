@@ -32,6 +32,7 @@ navesjuno: ldr r0, =mensaje_ingreso
 	ldr r1, =letra
 	bl scanf
 	ldr r0, =letra
+	@compara si la letra esta entre las definidas sino la vuelve a pedir
 	bl conversion
 	cmp r0, #-1
 	beq navesjuno
@@ -44,9 +45,12 @@ navesjuno: ldr r0, =mensaje_ingreso
 		ldr r0, =orientacion
 		ldr r9, [r0]
 		ldr r0, =letra
+		@compara si es horizontal o vertical y si no que ingrese otra vez la orientacion
 		cmp r9, #'V'
 		cmpne r9, #'H'
 		bne otravez1
+		@luego dependiendo de la orientacion verifica que la letra ingresada previamente no sea un caso imposible
+		@ si es un caso imposible lo regresa de nuevo a pedirle una letra
 		cmp r9,#'V'
 		bleq vvertical
 		cmpne r9, #'H'
@@ -60,7 +64,7 @@ navesjuno: ldr r0, =mensaje_ingreso
 	@Carga el valor de la casilla y la direccion de memoria del vector
 	mov r1, r0
 	ldr r0, =mapa1j1
-	@Compara si es horizontal o vertical y llama a la subrutina segun sea el caso
+	@Compara si es horizontal o vertical y llama a la subrutina de "agregar" segun sea el caso
 	ldr r4, =orientacion
 	ldrb r4, [r4]
 	cmp r4, #'V'
@@ -81,6 +85,8 @@ bl cuadro
 
 ldr r0, =mensaje_bj2
 bl puts
+
+@Repetimos el proceso de ingreso para el jugador 2
 
 mov r11, #0
 navesjdos: ldr r0, =mensaje_ingreso
@@ -136,6 +142,8 @@ bl puts
 	regresar: ldr r0, =messagej1
 	bl puts
 
+	@se le solicita 3 veces que ingrese una letra correspondiente a la casilla que atacara
+	@si ingresa una casilla invalida simplemente su tiro sera un rotundo fallo
 	mov r10, #3
 	atacajuno: ldr r0, =mapa2j1
 		bl cuadro
@@ -154,6 +162,8 @@ bl puts
 		subs r10, r10, #1
 		bne atacajuno
 
+	@cuenta cuantos aciertos hay en el tablero
+	@lo imprime
 	ldr r0, =mapa2j1
 	bl contar
 
@@ -165,8 +175,12 @@ bl puts
 	ldr r0, =formato1
 	bl printf
 
+	@compara si ya tiene 6 aciertos 
+	@si ya los tiene imprime un mensaje y se va al final
 	cmp r4, #6
 	beq gano1
+
+	@se repite el proceso de atacar para el jugador 2
 
 	ldr r0, =mapa2j1
 	bl cuadro
