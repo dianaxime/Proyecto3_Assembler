@@ -70,7 +70,7 @@ barcovertical:
 	mov r1,#0
 	@se itera 3 veces por el espacio que ocupa el barco
 	mov r3,#3
-	volver1: ldrb r1, [r0], #5
+	volver1: ldrb r1, [r0],#5
 		cmp r1, #'+'
 		moveq r2, #-1
 		beq salir1

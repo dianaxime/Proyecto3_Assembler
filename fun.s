@@ -20,7 +20,7 @@ horizontal:
 
 
 vertical:
-@@@MARIA INES
+@@@CAMILA
 	push {lr}
 	@agregar verticalmente
 	@ r0 contiene la direccion de memoria del vector
